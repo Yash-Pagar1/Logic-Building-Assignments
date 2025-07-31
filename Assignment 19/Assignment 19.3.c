@@ -1,0 +1,73 @@
+/*
+Input :     N : 6
+        Elements : 85   66  11   80  93  88
+
+Output : 11 is Present
+
+Input :     N : 6
+        Elements : 85   66  3   80  93  88
+
+Output : 11 is Absent
+*/
+
+#include<stdio.h>
+#include<stdlib.h>
+
+#define TRUE 1
+#define FALSE 0
+
+typedef int BOOL;
+
+BOOL Check(int Arr[], int iLength)
+{
+    int iCnt = 0;
+
+    for(iCnt = 0; iCnt < iLength; iCnt++)
+    {
+        if(Arr[iCnt] == 11)
+        {
+            return TRUE;
+            break;
+        }
+    }
+}
+int main()
+{
+    int iSize = 0, iCnt = 0;
+    BOOL bRet = FALSE;
+    int *p = NULL;
+
+    printf("Enter the number of elements : \n");
+    scanf("%d",&iSize);
+
+    p = (int *)malloc(iSize * sizeof(int));
+
+    if(p == NULL)
+    {
+        printf("Unable to allocate the memory\n");
+        return -1;
+    }
+
+    printf("Enter the %d Elements : \n",iSize);
+
+    for(iCnt = 0; iCnt < iSize; iCnt++)
+    {
+        printf("Enter element %d : ",iCnt + 1);
+        scanf("%d",&p[iCnt]);
+    }
+
+   bRet = Check(p, iSize);
+
+   if(bRet == TRUE)
+   {
+    printf("11 is Present\n");
+   }
+   else
+   {
+    printf("11 is Absent\n");
+   }
+
+    free(p);
+
+    return 0;
+}
