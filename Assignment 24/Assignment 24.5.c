@@ -1,0 +1,36 @@
+/*
+Input : "MarvellouS"
+Output : "SuollevraM"
+
+*/
+#include<stdio.h>
+
+void Reverse(char *str)
+{
+    int iCount = 0;
+    int iCnt = 0;
+
+    while(*str != '\0')
+    {
+         iCount++;
+        str++;
+    }
+    str--;
+
+    for(iCnt = iCount; iCnt > 0; iCnt--, str--)
+    {
+        printf("%c",*str);
+    }
+}
+int main()
+{
+    char Arr[20];
+
+    printf("Enter String : \n");
+    scanf("%[^'\n']s",Arr);
+
+    Reverse(Arr);
+
+
+    return 0;
+}
